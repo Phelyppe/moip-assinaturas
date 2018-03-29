@@ -4,15 +4,19 @@ abstract class MoipAuth
 {
     protected $query;
 
-    public function __construct($apiToken, $apiKey)
+    public function __construct($apiToken, $apiKey, $sandbox = false)
     {
-        $apiToken = 'DQ7TIA2B7MSKP4NFCFBTFG9QYLZ04XDJ';
-        $apiKey = 'XYEXOGOZXJS8PGXBB240WCUY1Y3IL1UOYVURJ44O';
+       
         $this->query = new MoipConnect($apiToken, $apiKey);
+        $this->sandbox = $sandbox;
     }
 
-    protected function getURL($param)
+    protected function getURL($url, $sandbox = false)
     {
-        return 'https://sandbox.moip.com.br/assinaturas/v1/' . $param;
+        if($this->sandbox){
+            return 'https://sandbox.moip.com.br/assinaturas/v1/' . $url;
+        } else {
+            return 'https://api.moip.com.br/assinaturas/v1/' . $url;
+        }
     }
 }
