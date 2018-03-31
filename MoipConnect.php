@@ -26,7 +26,7 @@ class MoipConnect
         return $this->query($url, $data, 'GET');
     }
 
-    public function put($url, $data)
+    public function put($url, $data = null)
     {
         return $this->query($url, $data, 'PUT');
     }

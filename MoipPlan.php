@@ -98,6 +98,16 @@ class MoipPlan extends MoipAuth
 
     }
 
+    public function activatePlan($code){
+        $url = $this->getURL('plans/' . $code . '/activate');
+        return $this->query->put($url);
+    }
+
+    public function inactivatePlan($code){
+        $url = $this->getURL('plans/' . $code . '/inactivate');
+        return $this->query->put($url);
+    }
+
     public function create(){
         $url = $this->getURL('plans');
         return $this->query->post($url, $this->data);
