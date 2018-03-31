@@ -13,7 +13,9 @@ $plans->setName('Plano de testes');
 $plans->setAmount(990);
 
 $created = $plans->create();
-$result = $plans->getPlan('TESTE001');
+$plan = $plans->getPlan('TESTE001');
 
-print_r($result);
+print_r($plan);
+
+
  ?>

@@ -1,7 +1,7 @@
 <?php
 
-class MoipPlan extends MoipAuth
-{
+class MoipPlan extends MoipAuth {
+    
     private $data = array();
 
     public function setCode($code){

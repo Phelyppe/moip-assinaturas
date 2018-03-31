@@ -3,10 +3,12 @@
 require_once "MoipAuth.php";
 require_once "MoipConnect.php";
 require_once "MoipPlan.php";
+require_once "MoipCustomer.php";
 
 class MoipSubscription{
 
     private $plan;
+    private $customer;
 
     public function __construct($appToken = null, $accessToken = null, $sandbox = false)
     {
@@ -16,6 +18,7 @@ class MoipSubscription{
         $this->sandbox = $sandbox;
 
         $this->plan = new MoipPlan($this->appToken, $this->accessToken, $sandbox);
+        $this->customer = new MoipCustomer($this->appToken, $this->accessToken, $sandbox);
   
     }
   
@@ -24,4 +27,7 @@ class MoipSubscription{
         return $this->plan;
     }
     
+    public function customers(){
+        return $this->customer;
+    }
 }
