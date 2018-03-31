@@ -3,6 +3,7 @@
 class MoipCustomer extends MoipAuth {
 
 	private $data = array();
+	private $credit_card = array();
 
 	public function setCode($code){
 		$this->data['code'] = $code;
@@ -99,9 +100,42 @@ class MoipCustomer extends MoipAuth {
 		return $this->data;
 	}
 
+	public function setCreditCardHolder($name){
+		$this->data['billing_info']['credit_card']['holder_name'] = $name;
+		return $this->credit_card;
+	}
+
+	public function setCreditCardNumber($number){
+		$this->data['billing_info']['credit_card']['number'] = $number;
+		return $this->data;
+	}
+
+	public function setCreditCardExpirationMonth($month){
+		$this->data['billing_info']['credit_card']['expiration_month'] = $month;
+		return $this->data;
+	}
+
+	public function setCreditCardExpirationYear($year){
+		$this->data['billing_info']['credit_card']['expiration_year'] = $year;
+		return $this->data;
+	}
+
+	public function updateCreditCard($code){
+
+		$this->credit_card = $this->data['billing_info'];
+
+        $url = $this->getURL('customers/' . $code . '/billing_infos');
+        return $this->query->put($url, $this->credit_card);
+    }
+
 	public function create(){
         $url = $this->getURL('customers?new_vault=false');
         return $this->query->post($url, $this->data);
+    }
+
+    public function update($code){
+        $url = $this->getURL('customers/' . $code);
+        return $this->query->put($url, $this->data);
     }
 
     public function getCustomer($code){
@@ -115,4 +149,15 @@ class MoipCustomer extends MoipAuth {
         return $data;
 
     }
+
+    public function getCustomers()
+    {
+        $url = $this->getURL('customers');
+        $data = $this->query->get($url);
+        if (!$data) {
+            return;
+        }
+        return $data;
+    }
+
 }
