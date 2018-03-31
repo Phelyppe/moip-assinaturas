@@ -113,6 +113,11 @@ class MoipPlan extends MoipAuth
         return $this->query->post($url, $this->data);
     }
 
+    public function update($code){
+        $url = $this->getURL('plans/' . $code);
+        return $this->query->put($url, $this->data);
+    }
+
     public function getPlans()
     {
         $url = $this->getURL('plans');
