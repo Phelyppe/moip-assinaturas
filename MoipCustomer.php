@@ -150,8 +150,7 @@ class MoipCustomer extends MoipAuth {
 
     }
 
-    public function getCustomers()
-    {
+    public function getCustomers(){
         $url = $this->getURL('customers');
         $data = $this->query->get($url);
         if (!$data) {
