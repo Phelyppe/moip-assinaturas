@@ -1,5 +1,7 @@
 <?php
 
+namespace MoipAssinatura;
+
 require_once "MoipAuth.php";
 require_once "MoipConnect.php";
 require_once "MoipPlan.php";
