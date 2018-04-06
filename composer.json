@@ -1,0 +1,14 @@
+{
+    "name": "pinheironinja/moip-assinaturas",
+    "authors": [
+        {
+            "name": "Felipe Pinheiro",
+            "email": "felipe.pinheiro.santos@outlook.com.br"
+        }
+    ],
+    "autoload": {
+        "psr-4": {
+            "MoipAssinatura\\" : "src/" 
+        }
+    }
+}
