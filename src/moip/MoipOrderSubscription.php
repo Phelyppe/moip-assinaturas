@@ -1,5 +1,7 @@
 <?php
 
+namespace MoipAssinatura;
+
 class MoipOrderSubscription extends MoipAuth{
 	
 	private $data = array();

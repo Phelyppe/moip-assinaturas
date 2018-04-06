@@ -1,5 +1,7 @@
 <?php
 
+namespace MoipAssinatura;
+
 class MoipPlan extends MoipAuth {
     
     private $data = array();

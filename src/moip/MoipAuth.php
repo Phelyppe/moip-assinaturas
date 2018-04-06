@@ -1,5 +1,7 @@
 <?php
 
+namespace MoipAssinatura;
+
 abstract class MoipAuth
 {
     protected $query;
