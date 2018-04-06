@@ -10,8 +10,5 @@
         "psr-4": {
             "MoipAssinatura\\" : "src/" 
         }
-    },
-    "require": {
-        "pinheironinja/moip-assinaturas": "dev-master"
     }
 }
