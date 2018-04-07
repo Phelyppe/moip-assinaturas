@@ -1,6 +1,7 @@
 {
     "name": "pinheironinja/moip-assinaturas",
-    "minimum-stability": "stable",
+    "minimum-stability": "dev",
+    "prefer-stable": true,
     "authors": [
         {
             "name": "Felipe Pinheiro",
