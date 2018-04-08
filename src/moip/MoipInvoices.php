@@ -45,7 +45,7 @@ class MoipInvoices extends MoipAuth{
         $url = $this->getURL('invoices/' . $code);
         $data = $this->query->get($url);
         if (!$data) {
-            return;
+            return false;
         }
         return $data;
     }
