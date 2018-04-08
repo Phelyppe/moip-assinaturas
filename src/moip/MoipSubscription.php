@@ -7,6 +7,7 @@ class MoipSubscription{
     private $plan;
     private $customer;
     private $subscription;
+    private $invoice;
 
     public function __construct($appToken = null, $accessToken = null, $sandbox = false)
     {
@@ -18,6 +19,8 @@ class MoipSubscription{
         $this->plan = new MoipPlan($this->appToken, $this->accessToken, $sandbox);
         $this->customer = new MoipCustomer($this->appToken, $this->accessToken, $sandbox);
         $this->subscription = new MoipOrderSubscription($this->appToken, $this->accessToken, $sandbox);
+        $this->invoice = new MoipInvoices($this->appToken, $this->accessToken, $sandbox);
+
     }
   
     public function plans()
@@ -31,5 +34,9 @@ class MoipSubscription{
 
     public function subscriptions(){
         return $this->subscription;
+    }
+
+    public function invoices(){
+        return $this->invoice;
     }
 }
