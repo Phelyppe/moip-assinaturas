@@ -9,7 +9,7 @@ namespace MoipAssinatura;
  *
  */
 
-class MoipInvoices extends MoipAuth{
+class MoipInvoice extends MoipAuth{
 
 	private $data = array();
 
@@ -41,7 +41,7 @@ class MoipInvoices extends MoipAuth{
      * @return array 
      */
 
-    public function getInvoices($code){
+    public function getInvoice($code){
         $url = $this->getURL('invoices/' . $code);
         $data = $this->query->get($url);
         if (!$data) {
