@@ -2,7 +2,7 @@
 
 namespace MoipAssinatura;
 
-class MoipSubscription{
+class Moip{
 
     private $plan;
     private $customer;

@@ -1,6 +1,7 @@
 <?php
 
 namespace MoipAssinatura;
+use \DateTime;
 
 class MoipCustomer extends MoipAuth {
 
@@ -27,9 +28,9 @@ class MoipCustomer extends MoipAuth {
 		return $this->data;
 	}
 	
-	public function setPhone($data){
-		$this->setPhoneAreaCode($data['area']);
-		$this->setPhoneNumber($data['number']);
+	public function setPhone($area, $number){
+		$this->setPhoneAreaCode($area);
+		$this->setPhoneNumber($number);
 
 		return $this->data;
 	}
@@ -43,10 +44,11 @@ class MoipCustomer extends MoipAuth {
 		return $this->data;
 	}
 
-	public function setBirthdate($data){
-		$this->setBirthdateDay($data['day']);
-		$this->setBirthdateMonth($data['month']);
-		$this->setBirthdateYear($data['year']);
+	public function setBirthdate($birthdate){
+		$date = new DateTime($birthdate);
+		$this->setBirthdateDay($date->format('d'));
+		$this->setBirthdateMonth($date->format('m'));
+		$this->setBirthdateYear($date->format('Y'));
 
 		return $this->data;
 	}
@@ -65,6 +67,16 @@ class MoipCustomer extends MoipAuth {
 	private function setBirthdateYear($year){
 		$this->data['birthdate_year'] = $year;
 		return $this->data;
+	}
+
+	public function setAddress($street, $number, $district, $city, $state, $zipcode, $country){
+		$this->setAddressStreet($street);
+		$this->setAddressNumber($number);
+		$this->setAddressDistrict($district);
+		$this->setAddressCity($city);
+		$this->setAddressState($state);
+		$this->setAddressZipcode($zipcode);
+		$this->setAddressCountry($country);
 	}
 
 	public function setAddressStreet($street){

@@ -4,6 +4,7 @@
 <ul>
   <li><a href="#section-installation">Instalação</a></li>
   <li><a href="#section-autentication">Autenticação</a></li>
+  <li><a href="#section-customers">Clientes</a></li>
 </ul>
 
 <h2 id="section-installation">Instalação</h4>
@@ -11,12 +12,13 @@
 <pre>composer require pinheironinja/moip-assinaturas</pre>
 
 <h2 id="section-autentication">Autenticação</h2>
+<h3>Basic Auth</h3>
 <pre>
 <?php
 
 require "vendor/autoload.php";
 
-use MoipAssinatura\MoipSubscription;
+use MoipAssinatura\Moip;
 
 $moip_account_info = array(
 	'token' => '10101010101010101010101010101010',
@@ -24,5 +26,18 @@ $moip_account_info = array(
 	'sandbox' => true
 );
 
-$moip = new MoipSubscription($moip_account_info);
+$moip = new Moip($moip_account_info);
+</pre>
+<h2 id="section-customers">Clientes</h2>
+<h3>Criando um cliente</h3>
+<pre>
+$customer = $moip->customers();
+
+$customer->setCode(uniqid());
+$customer->setFullName('Joãozinho Exemplo da Silva');
+$customer->setEmail('email@example.com');
+$customer->setCPF('22222222222');
+$customer->setPhone('99','999999999');
+$customer->setBirthdate('1994-01-18');
+$customer->setAddress('R Teste', '12', 'Centro', 'Nova Iguaçu', 'RJ', '00000000', 'BRA' );
 </pre>
