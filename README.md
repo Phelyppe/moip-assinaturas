@@ -40,4 +40,19 @@ $customer->setCPF('22222222222');
 $customer->setPhone('99','999999999');
 $customer->setBirthdate('1994-01-18');
 $customer->setAddress('R Teste', '12', 'Centro', 'Nova Iguaçu', 'RJ', '00000000', 'BRA' );
+$customer->create();
+
+print_r($customer);
+</pre>
+
+<h3>Consultando dados de um cliente</h3>
+<pre>
+$customer = $moip->customers()->get('5ac9a60880684');
+print_r($customer);
+</pre>
+
+<h3>Consultando todos os clientes</h3>
+<pre>
+$customers = $moip->customers()->all();
+print_r($customers);
 </pre>

@@ -152,7 +152,7 @@ class MoipCustomer extends MoipAuth {
         return $this->query->put($url, $this->data);
     }
 
-    public function getCustomer($code){
+    public function get($code){
         $url = $this->getURL('customers/' . $code);
         $data = $this->query->get($url);
 
@@ -164,7 +164,7 @@ class MoipCustomer extends MoipAuth {
 
     }
 
-    public function getCustomers(){
+    public function all(){
         $url = $this->getURL('customers');
         $data = $this->query->get($url);
         if (!$data) {
