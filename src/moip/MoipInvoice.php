@@ -21,7 +21,7 @@ class MoipInvoice extends MoipAuth{
      * @return multidimensional array 
      */
 
-	public function getInvoices($code){
+	public function all($code){
         $url = $this->getURL('subscriptions/' . $code . '/invoices');
         $data = $this->query->get($url);
 
@@ -41,7 +41,7 @@ class MoipInvoice extends MoipAuth{
      * @return array 
      */
 
-    public function getInvoice($code){
+    public function get($code){
         $url = $this->getURL('invoices/' . $code);
         $data = $this->query->get($url);
         if (!$data) {

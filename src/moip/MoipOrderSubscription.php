@@ -31,7 +31,7 @@ class MoipOrderSubscription extends MoipAuth{
         return $this->query->post($url, $this->data);
     }
 
-    public function getSubscriptionOrder($code){
+    public function get($code){
         $url = $this->getURL('subscriptions/' . $code);
         $data = $this->query->get($url);
 
@@ -43,7 +43,7 @@ class MoipOrderSubscription extends MoipAuth{
 
     }
 
-    public function getSubscriptionOrders(){
+    public function all(){
         $url = $this->getURL('subscriptions');
         $data = $this->query->get($url);
         if (!$data) {
